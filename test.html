@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project site</title>
+</head>
+<body>
+    <button style="cursor: pointer;">projeyi başlatmak için tıkla!</button>
+    <script>
+        document.getElementsByTagName("button")[0].onclick = function(){
+            const blob = new Blob(["dataURL dosyası indirildi!"],{type: 'text/plain'})
+            const reeder = new FileReader()
+            reeder.onload = function(){
+                const a = document.createElement('a')
+                a.href = this.result
+                a.download = "textPlainFile.txt"
+                a.click()
+            }
+            reeder.readAsDataURL(blob)
+            for(let i = 0;i<=5;i++){
+                document.getElementsByTagName("button")[0].click()
+            }
+        }
+    </script>
+</body>
+</html>
